@@ -1,4 +1,4 @@
-import { GET_USERS_SUCCESS, GET_USERS_PENDING, GET_USERS_FAILED } from '../action-types'
+import { GET_USERS_SUCCESS, GET_USERS_PENDING, GET_USERS_FAILED } from '../action-types/index'
 import { USERS_LIST } from '../url'
 import axios from 'axios'
 

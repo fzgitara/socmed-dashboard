@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
+  animation: App-logo-spin infinite 5s linear;
   height: 3rem;
   float: left;
 }
@@ -23,6 +23,30 @@
 
 .App-intro {
   font-size: large;
+}
+
+.pageTitle {
+  margin: 10px
+}
+
+.album {
+  display: flex;
+  justify-content: center;
+  font-size: large;
+  text-align: left;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.album-list {
+  border-radius: 0px;
+  border: 2px solid #25DBFF;
+  margin: 10px;
+  padding: 20px;
+  height: 10rem;
+  width: 10rem;
+  display: flex;
+  flex-direction: column;
 }
 
 @keyframes App-logo-spin {

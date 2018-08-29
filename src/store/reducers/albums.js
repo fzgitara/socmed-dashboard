@@ -1,4 +1,4 @@
-import { GET_USERS_SUCCESS, GET_USERS_PENDING, GET_USERS_FAILED } from '../action-types/index'
+import { GET_ALBUMS_SUCCESS, GET_ALBUMS_PENDING, GET_ALBUMS_FAILED } from '../action-types/index'
 
 const initialState = {
   loading: false,
@@ -8,18 +8,18 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-  case GET_USERS_PENDING:
+  case GET_ALBUMS_PENDING:
     return {
       ...state,
       loading: true
     }
-  case GET_USERS_SUCCESS:
+  case GET_ALBUMS_SUCCESS:
     return {
       ...state,
       loading: false,
       data: action.payload
     }
-  case GET_USERS_FAILED:
+  case GET_ALBUMS_FAILED:
     return {
       ...state,
       loading: false,

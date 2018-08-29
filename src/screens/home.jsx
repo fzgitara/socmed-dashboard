@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
-import { Route, Link, BrowserRouter as Router, Switch} from "react-router-dom"
+import { BrowserRouter as Router, withRouter } from "react-router-dom"
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import '../App.css'
 import { getUsers } from '../store/actions/users'
+import images from '../res/images'
+import User from '../components/User'
 
-export class home extends Component {
-  constructor(props) {
-    super(props)
+export class Home extends Component {
+  constructor() {
+    super()
     this.state = {
       users: []
     }
@@ -16,21 +19,37 @@ export class home extends Component {
     this.props.getUsers()
   }
   
-  static getDerivedStateFromProps(nextProps, prevState) {
+  static getDerivedStateFromProps(props, state) {
     return {
-      users: nextProps.users
+      users: props.users.data
     }
   }
 
   render() {
-    console.log('USERS', this.state.users)
     return (
       <Router>
-        <div>
-          <h1>USERS</h1>
+        <div className="container">
+          <h3 className="pageTitle" >USERS</h3>
+          {this.listUsers()}
         </div>
       </Router>
     )
+  }
+
+  listUsers() {
+    let result = []
+    if(this.props.users.loading){
+      result.push(<img src={images.loading} key={'loading'} alt="loading"/>)
+    } else if(this.props.users.error) {
+      result.push(<h3>Error</h3>)
+    } else {
+      this.state.users.forEach((user, i) => {
+        result.push(
+          <User user={user} key={'user'+i} />
+        )
+      })
+    }
+    return result
   }
 }
 
@@ -42,4 +61,4 @@ const mapDispatchToProps = (dispatch) => bindActionCreators({
   getUsers
 }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(home)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Home))
