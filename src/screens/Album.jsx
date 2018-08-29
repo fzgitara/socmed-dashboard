@@ -45,8 +45,8 @@ export class Album extends Component {
     } else {
       this.state.albums.forEach((album, i) => {
         result.push(
-          <Link to={{pathname: `/photos/${album.userId}/${album.id}`}} >
-            <div className="album-list" key={'album'+i} >
+          <Link to={{pathname: `/photos/${album.id}`}} key={'album'+i} >
+            <div className="album-list">
               <h5>{album.title}</h5>
             </div>
           </Link>

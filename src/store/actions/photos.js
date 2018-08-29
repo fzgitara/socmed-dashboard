@@ -2,10 +2,10 @@ import { GET_PHOTOS_SUCCESS, GET_PHOTOS_PENDING, GET_PHOTOS_FAILED } from '../ac
 import { PHOTOS_LIST } from '../url'
 import axios from 'axios'
 
-export const getPhotos = (userId, albumId) => {
+export const getPhotos = (albumId) => {
   return dispatch => {
     dispatch(getPhotosPending())
-    axios.get(PHOTOS_LIST+'?userId='+userId+'?albumId='+albumId).then(resp => {
+    axios.get(PHOTOS_LIST+'?albumId='+albumId).then(resp => {
       dispatch(getPhotosSuccess(resp.data))
     }).catch(error => {
       dispatch(getPhotosFailed(error))
