@@ -14,8 +14,8 @@ export default class User extends Component {
         <div className="card-body">
           <h5 className="card-title">{user.name}</h5>
           <h6 className="card-subtitle mb-2 text-muted">{user.username}</h6>
-          <Link to={{pathname: `/post/${user.id}`, state: {name: user.name} }} className="card-link" onClick={this.refresh} >View Post</Link>
-          <Link to={{pathname: `/album/${user.id}`, state: {name: user.name} }} className="card-link" onClick={this.refresh} >View Album</Link>
+          <Link to={{pathname: `/post/${user.id}`, state: {name: user.name} }} className="card-link" onClick={this.refresh.bind(this)} >View Post</Link>
+          <Link to={{pathname: `/album/${user.id}`, state: {name: user.name} }} className="card-link" onClick={this.refresh.bind(this)} >View Album</Link>
         </div>
       </div>
     )

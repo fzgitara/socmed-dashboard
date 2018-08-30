@@ -38,8 +38,8 @@ export default class PostComponent extends Component {
             <div style={{float: 'right'}} >
               {
                 this.state.commentsIsActive ?
-                <div onClick={this.commentsActivate.bind(this)} className="btn btn-secondary">Close Comments</div> :
-                <div onClick={this.commentsActivate.bind(this)} className="btn btn-primary">View Comments</div>
+                <button onClick={this.commentsActivate.bind(this)} className="btn btn-secondary">Close Comments</button> :
+                <button onClick={this.commentsActivate.bind(this)} className="btn btn-primary">View Comments</button>
               }
             </div>
           </div>
